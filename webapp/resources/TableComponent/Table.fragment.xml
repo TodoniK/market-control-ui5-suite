@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Table items="{dataModel>}">
+        <columns>
+            <Column >
+                <Text text="Id"/>
+            </Column>
+            <Column>
+                <Text text="UserId"/>
+            </Column>
+            <Column>
+                <Text text="ProductId"/>
+            </Column>
+            <Column>
+                <Text text="Quantity"/>
+            </Column>
+            <Column>
+                <Text text="CreatedAt"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <ObjectIdentifier title="{dataModel>id}"/>
+                    <Text text="{dataModel>user_id}"/>
+                    <Text text="{dataModel>product_id}"/>
+                    <Text text="{dataModel>quantity}"/>
+                    <Text text="{dataModel>created_at}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

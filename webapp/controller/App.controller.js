@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"../components/TableComponent",
+	"../resources/TableComponent/TableComponent",
   	"sap/ui/core/ComponentContainer"
 ], function(Controller,TableComponent) {
 	"use strict";
@@ -8,10 +8,12 @@ sap.ui.define([
 		
 		onInit: function() {
 			var table = new TableComponent();
-			
-			table.createContent("orders");
-			
-			
+			var oModel = new sap.ui.model.json.JSONModel();
+						
+			oModel.setData(table.getDataFromApi("orders"));
+
+			this.getView().setModel(oModel, 'dataModel');
+			console.log(this.getView().getModel('dataModel').oData);
 		}
 		
 	});
