@@ -41,8 +41,6 @@ sap.ui.define([
             success: function(sResult){}})
           .responseJSON;
 
-          console.log(result);
-
           return result;
       }
     }

@@ -12,8 +12,7 @@ sap.ui.define([
 						
 			oModel.setData(table.getDataFromApi("orders"));
 
-			this.getView().setModel(oModel, 'dataModel');
-			console.log(this.getView().getModel('dataModel').oData);
+			this.getView().setModel(oModel);
 		}
 		
 	});

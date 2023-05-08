@@ -5,7 +5,7 @@
                 <f:ShellBar core:require="{ Helper: 'sap/ui/demo/todo/util/Helper' }" title="{i18n>TITLE}" homeIcon="{:= Helper.resolvePath('./img/logo_ui5.png') }" />
             </customHeader>
             <content>
-                <core:Fragment binding="{dataModel>oData>1}" fragmentName="./TableComponent/Table" type="XML" />
+                <core:Fragment binding="{dataModel>oData}" fragmentName="./TableComponent/Table" type="XML" />
             </content>
         </Page>
     </App>

@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Table items="{dataModel>}">
+    <Table items="{/}">
         <columns>
             <Column >
                 <Text text="Id"/>
@@ -20,11 +20,11 @@
         <items>
             <ColumnListItem>
                 <cells>
-                    <ObjectIdentifier title="{dataModel>id}"/>
-                    <Text text="{dataModel>user_id}"/>
-                    <Text text="{dataModel>product_id}"/>
-                    <Text text="{dataModel>quantity}"/>
-                    <Text text="{dataModel>created_at}"/>
+                    <Text text="{id}"/>
+                    <Text text="{user_id}"/>
+                    <Text text="{product_id}"/>
+                    <Text text="{quantity}"/>
+                    <Text text="{created_at}"/>
                 </cells>
             </ColumnListItem>
         </items>
