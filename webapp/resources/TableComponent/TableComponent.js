@@ -22,11 +22,20 @@ sap.ui.define([
       return this.getProperty("tableName");
     },
 
-    fillTable: function(viewedTable) {
+    createTable: function(tableName) {
     
+      this.setTableName(tableName);
+
+      var viewedTable = new sap.m.Table({
+        id: "viewedTable",
+        inset: true,
+        headerText: this.getTableName(),
+        columns: []
+      });
+
       var oModel = new sap.ui.model.json.JSONModel();
 						
-			oModel.setData(this.getDataFromApi("users"));
+			oModel.setData(this.getDataFromApi(this.getTableName()));
 
       if(oModel.getData() != undefined) {
 
@@ -53,6 +62,8 @@ sap.ui.define([
             })
           }));
         }
+
+        return viewedTable;
 
       } else {
         Swal.fire({icon: 'error', title: 'Oops...', text: 'No db connection for this table!'});
