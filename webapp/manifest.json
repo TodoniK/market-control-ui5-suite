@@ -1,7 +1,7 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "sap.ui.demo.todo",
+		"id": "sap.ui.mcsuite",
 		"type": "application"
 	},
 	"sap.ui5": {
@@ -14,7 +14,7 @@
 			}
 		},
 		"rootView": {
-			"viewName": "sap.ui.demo.todo.view.App",
+			"viewName": "sap.ui.mcsuite.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"

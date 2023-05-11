@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(UIComponent) {
   "use strict";
 
-  return UIComponent.extend("openui5-sample-app.TableComponent", {
+  return UIComponent.extend("mcsuite.TableComponent", {
     metadata: {
       properties: {
         tableName: { type: "string", defaultValue: "" },

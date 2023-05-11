@@ -1,7 +1,7 @@
 {
-	"name": "openui5-sample-app",
+	"name": "mcsuite",
 	"version": "0.3.0",
-	"description": "Sample of an OpenUI5 app",
+	"description": "UI5 McSuite",
 	"private": true,
 	"engines": {
 		"node": "^16.18.0 || >=18.12.0",
