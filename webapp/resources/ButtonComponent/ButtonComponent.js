@@ -79,47 +79,33 @@ sap.ui.define([
             });
 
             if(result.status == 200) {
-                return href;
-            } else {
-                return "/#";
-            }
-        },
-        checkIfImageExists: function() {
-            var result;
-            var href = this.getImageReference();
-            
-            result = $.ajax({
-                url: href,
-                type: "HEAD",
-                'async': false,
-                success: function() {
-                },
-                error: function() {
-                }
-            });
-
-            if(result.status == 200) {
                 return true;
             } else {
                 return false;
             }
-        },
-        createLink: function(url, text, description, areaID) {
+        }
+        ,
+        createButton: function(url, text, description, areaID) {
             this.setUrlReference(url);
             this.setText(text);
             this.setDescription(description);
             this.setAreaID(areaID);
             
-            var href = this.checkIfTargetExists();
+            var href = this.getUrlReference();
+            var targetExists = this.checkIfTargetExists();
 
-            var oLink = new sap.m.Link({
+            var oButton = new sap.m.Button({
                 text: this.getText(),
-                href: href,
-                target: "_blank",
+                press: function() {
+                    if(targetExists){
+                        window.location.href = href;
+                    } else {
+                        Swal.fire({icon: 'error', title: 'Oops...', text: 'Link redirect to nothing!'});
+                    }
+                },
                 tooltip: this.getDescription()
             });
-
-            return oLink;
+            return oButton;            
         }
         
     });

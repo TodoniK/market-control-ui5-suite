@@ -7,11 +7,11 @@ sap.ui.define([
 		
 		createLink: function(view) {
 			var btn = new LinkComponent();
-			var oButton1 = btn.createButton("/img/logo_ui5.png", "Redirect work", "Gonna get an image", "flexBox2");
-			view.byId(btn.getAreaID()).addItem(oButton1);
+			var oLink1 = btn.createLink("/img/logo_marketControl.gif", "Redirect work", "Should go on google", "flexBox3");
+			view.byId(btn.getAreaID()).addItem(oLink1);
 
-			var oButton2 = btn.createButton("www.google.fr", "Redirect not working", "Gonna get an error message", "flexBox3");
-			view.byId(btn.getAreaID()).addItem(oButton2);	
+			var oLink2 = btn.createLink("www.google.fr", "Redirect not working", "Should redirect to root folder of the project", "flexBox3");
+			view.byId(btn.getAreaID()).addItem(oLink2);	
 		}	
 	});
 });

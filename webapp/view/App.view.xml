@@ -4,11 +4,11 @@
             <customHeader>
                 <f:ShellBar core:require="{ Helper: 'sap/ui/mcsuite/util/Helper' }" title="{i18n>TITLE}" homeIcon="{:= Helper.resolvePath('./img/logo_ui5.png') }" />
             </customHeader>
-            <FlexBox id="flexBox1" justifyContent="Center" alignItems="Center">
+            <FlexBox id="flexBox1" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
-            <FlexBox id="flexBox2" justifyContent="Center" alignItems="Center">
+            <FlexBox id="flexBox2" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
-            <FlexBox id="flexBox3" justifyContent="Center" alignItems="Center">
+            <FlexBox id="flexBox3" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
         </Page>
     </App>
