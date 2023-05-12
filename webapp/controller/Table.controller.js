@@ -8,7 +8,7 @@ sap.ui.define([
 		createTable: function(view) {
 			var table = new TableComponent();
 			var oTable = table.createTable("users");
-			view.byId("page").addContent(oTable);
+			view.byId("flexBox1").addItem(oTable);
 		}	
 	});
 });

@@ -7,8 +7,11 @@ sap.ui.define([
 		
 		createLink: function(view) {
 			var btn = new LinkComponent();
-			var oButton = btn.createButton("www.google.com", "Google", "GoogleSearch", "page");
-			view.byId(btn.getAreaID()).addContent(oButton);
+			var oButton1 = btn.createButton("/img/logo_ui5.png", "Redirect work", "Gonna get an image", "flexBox2");
+			view.byId(btn.getAreaID()).addItem(oButton1);
+
+			var oButton2 = btn.createButton("www.google.fr", "Redirect not working", "Gonna get an error message", "flexBox3");
+			view.byId(btn.getAreaID()).addItem(oButton2);	
 		}	
 	});
 });
