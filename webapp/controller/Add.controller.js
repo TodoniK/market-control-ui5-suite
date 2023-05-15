@@ -10,9 +10,6 @@ sap.ui.define([
 			var oForm = addComp.createForm();
 
             view.byId("flexBox6").addItem(oForm);
-
-			var test = addComp.getComponents();
-
 		}	
 	});
 });

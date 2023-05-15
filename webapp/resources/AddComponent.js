@@ -29,12 +29,10 @@ sap.ui.define([
           });
         });
       
-        var oLocationSelect = new sap.m.Select({
-          items: [
-            new sap.ui.core.Item({ text: "Emplacement 1", key: "loc1" }),
-            new sap.ui.core.Item({ text: "Emplacement 2", key: "loc2" }),
-            new sap.ui.core.Item({ text: "Emplacement 3", key: "loc3" })
-          ]
+        var aComponentIDs = this.getComponentIDs();
+        var oLocationSelect = new sap.m.Select();
+        aComponentIDs.forEach(function(sID) {
+          oLocationSelect.addItem(new sap.ui.core.Item({ text: sID, key: sID }));
         });
       
         var oNameInput = new sap.m.Input({
@@ -85,8 +83,13 @@ sap.ui.define([
         });
       
         oForm.addFormContainer(oFormContainer);
+
+        var oPanel = new sap.m.Panel({
+          headerText: "Dynamic Component Adder",
+          content: [oForm]
+        });
       
-        return oForm;
+        return oPanel;
       },
 
       getComponents: async function() {
@@ -114,7 +117,34 @@ sap.ui.define([
           MessageBox.error("Erreur lors de la récupération des composants");
           return [];
         }
-      }                    
+      },
+      
+      getComponentIDs: function() {
+        var sViewPath = "/view/app.view.xml"; // Chemin vers le fichier app.view.xml
+      
+        var aComponentIDs = [];
+      
+        // Charger le fichier XML de manière synchrone
+        var oXMLHttpRequest = new XMLHttpRequest();
+        oXMLHttpRequest.open("GET", sViewPath, false);
+        oXMLHttpRequest.send(null);
+      
+        var sXMLContent = oXMLHttpRequest.responseText;
+      
+        // Créer un objet XMLDocument à partir du contenu XML
+        var oParser = new DOMParser();
+        var oXMLDocument = oParser.parseFromString(sXMLContent, "application/xml");
+      
+        // Utiliser XPath pour extraire tous les IDs des composants
+        var aResult = oXMLDocument.evaluate("//@id", oXMLDocument, null, XPathResult.ANY_TYPE, null);
+        var oNode = aResult.iterateNext();
+        while (oNode) {
+          var sID = oNode.textContent;
+          aComponentIDs.push(sID);
+          oNode = aResult.iterateNext();
+        }
+        return aComponentIDs;
+      }      
   
     });
   });
