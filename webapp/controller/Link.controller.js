@@ -7,7 +7,7 @@ sap.ui.define([
 		
 		createLink: function(view) {
 			var btn = new LinkComponent();
-			var oLink1 = btn.createLink("/img/logo_marketControl.gif", "Redirect work", "Should go on google", "flexBox3");
+			var oLink1 = btn.createLink("/img/logo_marketControl.gif", "Redirect work", "Should show the market control gif", "flexBox3");
 			view.byId(btn.getAreaID()).addItem(oLink1);
 
 			var oLink2 = btn.createLink("www.google.fr", "Redirect not working", "Should redirect to root folder of the project", "flexBox3");

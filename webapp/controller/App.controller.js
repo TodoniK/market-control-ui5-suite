@@ -2,6 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 ], function(Controller) {
 	"use strict";
+	
 	return Controller.extend("sap.ui.mcsuite.controller.App", {
 		
 		onInit: function() {
@@ -13,6 +14,9 @@ sap.ui.define([
 
 			var linkController = sap.ui.controller("sap.ui.mcsuite.controller.Link");
 			linkController.createLink(this.getView());
+
+			var dropdownController = sap.ui.controller("sap.ui.mcsuite.controller.Dropdown");
+			dropdownController.createMenu(this.getView());
 		}	
 	});
 });
