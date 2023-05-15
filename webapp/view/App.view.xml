@@ -12,6 +12,8 @@
             </FlexBox>
             <FlexBox id="flexBox4" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
+            <FlexBox id="flexBox5" justifyContent="SpaceAround" alignItems="Center" class="sapUiSmallMargin">
+            </FlexBox>
         </Page>
     </App>
 </mvc:View>

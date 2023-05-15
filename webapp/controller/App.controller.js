@@ -17,6 +17,9 @@ sap.ui.define([
 
 			var dropdownController = sap.ui.controller("sap.ui.mcsuite.controller.Dropdown");
 			dropdownController.createMenu(this.getView());
+
+			var fileUploaderController = sap.ui.controller("sap.ui.mcsuite.controller.FileUploader");
+			fileUploaderController.createUploader(this.getView());
 		}	
 	});
 });
