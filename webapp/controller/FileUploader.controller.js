@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"FileUploaderComponent/FileUploaderComponent"
+	"FileUploaderComponent"
 ], function(Controller,FileUploaderComponent) {
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.FileUploader", {

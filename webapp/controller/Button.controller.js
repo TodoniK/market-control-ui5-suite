@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"ButtonComponent/ButtonComponent"
+	"ButtonComponent"
 ], function(Controller,ButtonComponent) {
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Button", {

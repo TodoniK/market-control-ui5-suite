@@ -20,6 +20,9 @@ sap.ui.define([
 
 			var fileUploaderController = sap.ui.controller("sap.ui.mcsuite.controller.FileUploader");
 			fileUploaderController.createUploader(this.getView());
+
+			var addController = sap.ui.controller("sap.ui.mcsuite.controller.Add");
+			addController.createMenu(this.getView());
 		}	
 	});
 });

@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"TableComponent/TableComponent",
+	"TableComponent",
 ], function(Controller,TableComponent) {
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Table", {

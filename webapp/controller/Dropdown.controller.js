@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"DropdownComponent/DropdownComponent",
-    "LinkComponent/LinkComponent"
+	"DropdownComponent",
+    "LinkComponent"
 ], function(Controller,DropdownComponent,LinkComponent) {
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Dropdown", {

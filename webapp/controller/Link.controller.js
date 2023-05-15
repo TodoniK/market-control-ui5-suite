@@ -1,6 +1,6 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"LinkComponent/LinkComponent"
+	"LinkComponent"
 ], function(Controller,LinkComponent) {
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Link", {
