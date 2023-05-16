@@ -1,6 +1,6 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
   ], function(UIComponent, MessageBox) {
     "use strict";
   
@@ -52,8 +52,27 @@ sap.ui.define([
             var name = oNameInput.getValue();
             var description = oDescriptionInput.getValue();
       
-            // Effectuez les actions nécessaires en fonction des valeurs soumises
-            // Par exemple, ajouter des lignes dans les fichiers correspondants
+            // switch (selectedType) {
+            //   case "Button":
+            //     ButtonController.createButton(this.getView());
+            //     break;
+            //   case "Link":
+            //     LinkController.createLink(this.getView());
+            //     break;
+            //   case "Dropdown":
+            //     DropdownController.createMenu(this.getView());
+            //     break;
+            //   case "FileUploader":
+            //     FileUploaderController.createUploader(this.getView());
+            //     break;
+            //   case "Add":
+            //     AddController.createMenu(this.getView());
+            //     break;
+            //   default:
+            //     MessageBox.error("Invalid component type selected");
+            //     break;
+            // }
+
             MessageBox.success("Component added successfully");
           }
         });

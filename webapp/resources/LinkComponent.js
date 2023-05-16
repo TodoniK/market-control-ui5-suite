@@ -79,9 +79,9 @@ sap.ui.define([
             });
 
             if(result.status == 200) {
-                return href;
+                return true;
             } else {
-                return "/#";
+                return false;
             }
         },
         checkIfImageExists: function() {
@@ -110,13 +110,21 @@ sap.ui.define([
             this.setDescription(description);
             this.setAreaID(areaID);
             
-            var href = this.checkIfTargetExists();
+            var targetTest = this.checkIfTargetExists();
+            var href = this.getUrlReference();
 
             var oLink = new sap.m.Link({
-                text: this.getText(),
-                href: href,
-                target: "_blank",
-                tooltip: this.getDescription()
+            text: this.getText(),
+            href: "#",
+            target: "_blank",
+            tooltip: this.getDescription(),
+            press: function() {
+                if (targetTest) {
+                    window.open(href, '_blank');
+                } else {
+                    Swal.fire({icon: 'error', title: 'Oops...', text: 'Link redirect to nothing!'});
+                }
+             }
             });
 
             return oLink;

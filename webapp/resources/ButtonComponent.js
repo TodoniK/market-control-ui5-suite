@@ -98,7 +98,7 @@ sap.ui.define([
                 text: this.getText(),
                 press: function() {
                     if(targetExists){
-                        window.location.href = href;
+                        window.open(href, '_blank');
                     } else {
                         Swal.fire({icon: 'error', title: 'Oops...', text: 'Link redirect to nothing!'});
                     }
