@@ -1,6 +1,7 @@
 sap.ui.define([
   "sap/ui/core/UIComponent",
-], function(UIComponent) {
+  "sap/m/MessageBox",
+], function(UIComponent, MessageBox) {
   "use strict";
 
   return UIComponent.extend("mcsuite.TableComponent", {
@@ -66,7 +67,7 @@ sap.ui.define([
         return viewedTable;
 
       } else {
-        Swal.fire({icon: 'error', title: 'Oops...', text: 'No db connection for this table!'});
+        MessageBox.error("No db connection for this table!");
       }
     },
 

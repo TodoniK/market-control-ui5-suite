@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-  ], function(UIComponent) {
+    "sap/m/MessageBox",
+  ], function(UIComponent, MessageBox) {
     "use strict";
   
     return UIComponent.extend("mcsuite.ButtonComponent", {
@@ -122,7 +123,7 @@ sap.ui.define([
                 if (targetTest) {
                     window.open(href, '_blank');
                 } else {
-                    Swal.fire({icon: 'error', title: 'Oops...', text: 'Link redirect to nothing!'});
+                    MessageBox.error("Link redirect to nothing!");
                 }
              }
             });
