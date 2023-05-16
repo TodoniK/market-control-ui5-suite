@@ -5,13 +5,16 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Link", {
 		
-		createLink: function(view) {
-			var btn = new LinkComponent();
-			var oLink1 = btn.createLink("/img/logo_marketControl.gif", "Redirect work", "Should show the market control gif", "flexBox3");
-			view.byId(btn.getAreaID()).addItem(oLink1);
+		createLink: function(view, url, text, description, areaID) {
+			var link = new LinkComponent();
+			var oLink = link.createLink(url, text, description, areaID);
 
-			var oLink2 = btn.createLink("www.google.fr", "Redirect not working", "Should redirect to root folder of the project", "flexBox3");
-			view.byId(btn.getAreaID()).addItem(oLink2);	
+			var oPanel = new sap.m.Panel({
+				headerText: "Link Component",
+				content: [oLink]
+			});
+
+			view.byId(link.getAreaID()).addItem(oPanel);
 		}	
 	});
 });

@@ -5,10 +5,10 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Table", {
 		
-		createTable: function(view) {
+		createTable: function(view, tableName) {
 			var table = new TableComponent();
-			var oTable = table.createTable("users");
-			view.byId("flexBox1").addItem(oTable);
+			var oTable = table.createTable(tableName,"flexBox1");
+			view.byId(table.getAreaID()).addItem(oTable);
 		}	
 	});
 });

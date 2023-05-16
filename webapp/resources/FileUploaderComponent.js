@@ -5,16 +5,16 @@ sap.ui.define([
   ], function(UIComponent, FileUploader, MessageBox) {
     "use strict";
   
-    return UIComponent.extend("mcsuite.FileUploaderComponent", {
-      metadata: {
-        properties: {
-          areaID: { type: "string", defaultValue: "" },
-          uploadUrl: { type: "string", defaultValue: "" },
-          allowedFileTypes: { type: "string[]", defaultValue: [] }
-        },
-        events: {
-          uploadComplete: {}
-        }
+      return UIComponent.extend("mcsuite.FileUploaderComponent", {
+        metadata: {
+          properties: {
+            areaID: { type: "string", defaultValue: "" },
+            uploadUrl: { type: "string", defaultValue: "" },
+            allowedFileTypes: { type: "string[]", defaultValue: [] }
+          },
+          events: {
+            uploadComplete: {}
+          }
       },
   
       init: function() {
@@ -70,6 +70,7 @@ sap.ui.define([
                     fileUploader.upload();
                 }
             },
+
             uploadComplete: function(oEvent) {
                 var response = oEvent.getParameter("response");
                 var status = oEvent.getParameter("status");

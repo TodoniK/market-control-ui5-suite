@@ -8,6 +8,7 @@ sap.ui.define([
     metadata: {
       properties: {
         tableName: { type: "string", defaultValue: "" },
+        areaID: { type: "string", defaultValue: "" },
       }
     },
 
@@ -19,12 +20,20 @@ sap.ui.define([
       this.setProperty("tableName", sTableName);
     },
 
+    setAreaID: function(sAreaID) {
+      this.setProperty("areaID", sAreaID);
+    },
+
     getTableName: function() {
       return this.getProperty("tableName");
     },
 
-    createTable: function(tableName) {
-    
+    getAreaID: function() {
+      return this.getProperty("areaID");
+    },
+
+    createTable: function(tableName, areaID) {
+      this.setAreaID(areaID);
       this.setTableName(tableName);
 
       var viewedTable = new sap.m.Table({

@@ -5,11 +5,10 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Add", {
 		
-		createMenu: function(view) {
+		createForm: function(view, areaID) {
 			var addComp = new AddComponent();
-			var oForm = addComp.createForm();
-
-            view.byId("flexBox6").addItem(oForm);
+			var oForm = addComp.createForm(areaID);
+            view.byId(addComp.getAreaID()).addItem(oForm);
 		}	
 	});
 });

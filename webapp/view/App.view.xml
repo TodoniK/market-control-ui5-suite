@@ -3,6 +3,7 @@
         <Page id="page">
             <customHeader>
                 <f:ShellBar 
+                    title="Hello World"
                     homeIcon="./img/logo_marketControl.png"
                     showCopilot="false"
                     showSearch="true"

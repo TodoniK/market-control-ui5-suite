@@ -6,7 +6,7 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.Dropdown", {
 		
-		createMenu: function(view) {
+		createMenu: function(view, menuName, areaID) {
 			var menu = new DropdownComponent();
 			var arrayLinks = [
                 new LinkComponent().createLink("/img/logo_marketControl.gif", "Link 1", "Should show the market control gif"),
@@ -14,7 +14,6 @@ sap.ui.define([
                 new LinkComponent().createLink("/img/logo_marketControl.gif", "Link 3", "Should show the market control gif"),
                 new LinkComponent().createLink("/img/logo_marketControl.gif", "Link 4", "Should show the market control gif"),
             ];
-            var areaID = "flexBox4";
 
             var linkItems = arrayLinks.map(function(link) {
                 return new sap.ui.core.ListItem({
@@ -23,7 +22,7 @@ sap.ui.define([
                 });
             });
             
-            var oMenu = menu.createMenu("Menu", areaID, linkItems);
+            var oMenu = menu.createMenu(menuName, areaID, linkItems);
             view.byId(menu.getAreaID()).addItem(oMenu);
 		}	
 	});

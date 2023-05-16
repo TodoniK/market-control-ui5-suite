@@ -5,10 +5,10 @@ sap.ui.define([
 	"use strict";
 	return Controller.extend("sap.ui.mcsuite.controller.FileUploader", {
 		
-		createUploader: function(view) {
+		createUploader: function(view, areaID, allowedExtensions, uploadUrl) {
 			var fileUploader = new FileUploaderComponent();
-			var fileUploader1 = fileUploader.createFileUploader("flexBox5", ["jpg", "png", "gif", "txt"], "/upload");
-            view.byId(fileUploader.getAreaID()).addItem(fileUploader1);
+			var oFileUploader = fileUploader.createFileUploader(areaID, allowedExtensions, uploadUrl);
+            view.byId(fileUploader.getAreaID()).addItem(oFileUploader);
 		}
 
 	});
