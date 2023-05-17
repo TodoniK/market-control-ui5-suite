@@ -18,13 +18,6 @@
 			"type": "XML",
 			"async": true,
 			"id": "app"
-		},
-		"resources": {
-			"css": [
-				{
-					"uri": "css/styles.css"
-				}
-			]
 		}
 	}
 }

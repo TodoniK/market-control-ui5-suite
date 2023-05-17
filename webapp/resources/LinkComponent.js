@@ -115,22 +115,33 @@ sap.ui.define([
         var targetTest = this.checkIfTargetExists();
         var href = this.getUrlReference();
 
-        var oLink = new sap.m.Link({
-        text: this.getText(),
-        href: "#",
-        target: "_blank",
-        tooltip: this.getDescription(),
-        press: function() {
-            if (targetTest) {
-                window.open(href, '_blank');
-            } else {
-                MessageBox.error("Link redirect to nothing!");
-            }
-            }
+        var oLinkWithIcon = new sap.m.FlexBox({
+            justifyContent: sap.m.FlexJustifyContent.Start,
+            alignItems: sap.m.FlexAlignItems.Center,
+            items: [
+                new sap.ui.core.HTML({
+                    content: '<i class="fa-solid fa-link"></i>',
+                    preferDOM: false
+                }),
+                new sap.m.Link({
+                    text: this.getText(),
+                    href: "#",
+                    target: "_blank",
+                    tooltip: this.getDescription(),
+                    press: function() {
+                        if (targetTest) {
+                            window.open(href, '_blank');
+                        } else {
+                            MessageBox.error("Link redirect to nothing!");
+                        }
+                    }
+                })
+            ]
         });
-
-        return oLink;
-    }
         
+        oLinkWithIcon.addStyleClass("myLinkWithIcon"); // Ajoutez une classe CSS pour appliquer les styles personnalisés si nécessaire
+        
+        return oLinkWithIcon;              
+    }
   });
 });

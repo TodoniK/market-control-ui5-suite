@@ -9,8 +9,8 @@
                     showSearch="true"
                     showNotifications="true"
                     showProductSwitcher="true"
-                    notificationsNumber="2"
-                />
+                    notificationsNumber="2">
+                </f:ShellBar>
             </customHeader>
             <FlexBox id="flexBox1" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
