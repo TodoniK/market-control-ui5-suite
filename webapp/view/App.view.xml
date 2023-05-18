@@ -2,9 +2,15 @@
     <App>
         <Page id="page">
             <customHeader>
-                <Toolbar>
-                    <Button icon="sap-icon://home"/>
-                </Toolbar>
+                <f:ShellBar 
+                    title="Hello World"
+                    homeIcon="assets/img/logo_marketControl.png"
+                    showCopilot="false"
+                    showSearch="true"
+                    showNotifications="true"
+                    showProductSwitcher="true"
+                    notificationsNumber="2"
+                />
             </customHeader>
             <FlexBox id="flexBox1" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>

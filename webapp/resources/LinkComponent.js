@@ -4,7 +4,7 @@ sap.ui.define([
   ], function(UIComponent, MessageBox) {
     "use strict";
   
-    return UIComponent.extend("mcsuite.ButtonComponent", {
+    return UIComponent.extend("mcsuite.LinkComponent", {
       metadata: {
         properties: {
           urlReference: { type: "string", defaultValue: "" },
@@ -113,14 +113,14 @@ sap.ui.define([
         this.setAreaID(areaID);
         
         var targetTest = this.checkIfTargetExists();
-        var href = this.getUrlReference();
+        var href = this.getUrlReference();                                     
 
         var oLinkWithIcon = new sap.m.FlexBox({
             justifyContent: sap.m.FlexJustifyContent.Start,
             alignItems: sap.m.FlexAlignItems.Center,
             items: [
                 new sap.ui.core.HTML({
-                    content: '<i class="fa-solid fa-link"></i>',
+                    content: '<i class="fa-solid fa-link">&nbsp;</i>',
                     preferDOM: false
                 }),
                 new sap.m.Link({
@@ -135,12 +135,10 @@ sap.ui.define([
                             MessageBox.error("Link redirect to nothing!");
                         }
                     }
-                })
+                }),
             ]
         });
-        
-        oLinkWithIcon.addStyleClass("myLinkWithIcon"); // Ajoutez une classe CSS pour appliquer les styles personnalisés si nécessaire
-        
+                
         return oLinkWithIcon;              
     }
   });
