@@ -7,11 +7,10 @@ sap.ui.define([
     return UIComponent.extend("mcsuite.LinkComponent", {
       metadata: {
         properties: {
-          urlReference: { type: "string", defaultValue: "" },
-          imageReference: { type: "string", defaultValue: "" },
-          text: { type: "string", defaultValue: "" },
+          urlReference: { type: "string", defaultValue: "" }, // required
+          iconReference: { type: "string", defaultValue: "" }, 
+          text: { type: "string", defaultValue: "" }, // required
           description: { type: "string", defaultValue: "" },
-          targetExists: { type: "boolean", defaultValue: false },
           areaID: { type: "string", defaultValue: "" },
         }
     },
@@ -25,8 +24,8 @@ sap.ui.define([
         this.setProperty("urlReference", sUrlReference);
     },
 
-    setImageReference: function(sImageReference) {
-        this.setProperty("imageReference", sImageReference);
+    setIconReference: function(siconReference) {
+        this.setProperty("iconReference", siconReference);
     },
 
     setText: function(sText) {
@@ -47,8 +46,8 @@ sap.ui.define([
         return this.getProperty("urlReference");
     },
 
-    getImageReference: function() {
-        return this.getProperty("imageReference");
+    getIconReference: function() {
+        return this.getProperty("iconReference");
     },
 
     getText: function() {
@@ -64,11 +63,8 @@ sap.ui.define([
     },
 
     // Methods
-    checkIfTargetExists: function() {
-        var result;
-        var href = this.getUrlReference();
-        
-        result = $.ajax({
+    checkIfTargetsExists: function(href) {
+        var result = $.ajax({
             url: href,
             type: "HEAD",
             'async': false,
@@ -85,61 +81,66 @@ sap.ui.define([
         }
     },
 
-    checkIfImageExists: function() {
-        var result;
-        var href = this.getImageReference();
-        
-        result = $.ajax({
-            url: href,
-            type: "HEAD",
-            'async': false,
-            success: function() {
-            },
-            error: function() {
-            }
-        });
+    checkAllNecessaryProperties: function() {
+        var textReturn = "";
 
-        if(result.status == 200) {
-            return true;
-        } else {
-            return false;
+        if (this.getUrlReference() == "") {
+            textReturn += "urlReference should be setted\n";
         }
+
+        if (this.getText() == "") {
+            textReturn += "text should be setted\n";
+        }
+
+        return textReturn;
     },
 
-    createLink: function(url, text, description, areaID) {
+    createLink: function(url, icon, text, description, areaID) {
         this.setUrlReference(url);
+        this.setIconReference(icon);
         this.setText(text);
         this.setDescription(description);
         this.setAreaID(areaID);
         
-        var targetTest = this.checkIfTargetExists();
-        var href = this.getUrlReference();                                     
+        var propTests = this.checkAllNecessaryProperties();
+        var urlTest = this.checkIfTargetsExists(this.getUrlReference());
+        var icon = this.getIconReference();
+        var url = this.getUrlReference();
 
-        var oLinkWithIcon = new sap.m.FlexBox({
-            justifyContent: sap.m.FlexJustifyContent.Start,
-            alignItems: sap.m.FlexAlignItems.Center,
-            items: [
-                new sap.ui.core.HTML({
-                    content: '<i class="fa-solid fa-link">&nbsp;</i>',
-                    preferDOM: false
-                }),
-                new sap.m.Link({
-                    text: this.getText(),
-                    href: "#",
-                    target: "_blank",
-                    tooltip: this.getDescription(),
-                    press: function() {
-                        if (targetTest) {
-                            window.open(href, '_blank');
-                        } else {
-                            MessageBox.error("Link redirect to nothing!");
+        if(propTests == "") {
+            var oLinkWithIcon = new sap.m.FlexBox({
+                justifyContent: sap.m.FlexJustifyContent.Start,
+                alignItems: sap.m.FlexAlignItems.Center,
+                items: [
+                    new sap.ui.core.HTML({
+                        content: icon,
+                        preferDOM: false
+                    }),
+                    new sap.m.Link({
+                        text: this.getText(),
+                        href: "#",
+                        target: "_blank",
+                        tooltip: this.getDescription(),
+                        press: function() {
+                            if (urlTest) {
+                                window.open(url, '_blank');
+                            } else {
+                                MessageBox.error("URL not found");
+                            }
                         }
-                    }
-                }),
-            ]
-        });
+                    }),
+                ]
+            });
                 
-        return oLinkWithIcon;              
+            return oLinkWithIcon;
+            
+        } else {
+            MessageBox.error(propTests, "Error - Link Component");
+            this.setAreaID("flexBoxError");
+            return new sap.m.Label({
+                text: "Error"
+            });
+        }              
     }
   });
 });
