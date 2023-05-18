@@ -9,14 +9,12 @@
 	},
 	"scripts": {
 		"start": "ui5 serve",
-		"lint": "eslint webapp",
 		"build": "ui5 build -a --clean-dest",
 		"build-self-contained": "ui5 build self-contained -a --clean-dest",
 		"serve-dist": "ws --compress -d dist"
 	},
 	"devDependencies": {
 		"@ui5/cli": "^3.1.1",
-		"eslint": "^8.39.0",
 		"local-web-server": "^5.3.0",
 		"rimraf": "^5.0.0"
 	}
