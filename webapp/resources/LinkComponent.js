@@ -10,8 +10,8 @@ sap.ui.define([
           urlReference: { type: "string", defaultValue: "" }, // required
           iconReference: { type: "string", defaultValue: "" }, 
           text: { type: "string", defaultValue: "" }, // required
-          description: { type: "string", defaultValue: "" },
-          areaID: { type: "string", defaultValue: "" },
+          description: { type: "string", defaultValue: "Click me" },
+          areaID: { type: "string", defaultValue: "defaultFlexBox" },
         }
     },
 
@@ -136,7 +136,6 @@ sap.ui.define([
             
         } else {
             MessageBox.error(propTests, "Error - Link Component");
-            this.setAreaID("flexBoxError");
             return new sap.m.Label({
                 text: "Error"
             });

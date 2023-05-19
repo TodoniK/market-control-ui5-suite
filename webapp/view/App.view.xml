@@ -12,7 +12,7 @@
                     notificationsNumber="2"
                 />
             </customHeader>
-            <FlexBox id="flexBoxError" justifyContent="SpaceAround" alignItems="Center">
+            <FlexBox id="defaultFlexBox" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
             <FlexBox id="flexBox1" justifyContent="SpaceAround" alignItems="Center">
             </FlexBox>
