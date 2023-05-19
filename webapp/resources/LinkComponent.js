@@ -25,6 +25,7 @@ sap.ui.define([
     },
 
     setIconReference: function(siconReference) {
+        siconReference = '<i class="fa-solid fa-' + siconReference + '">&nbsp;</i>';
         this.setProperty("iconReference", siconReference);
     },
 

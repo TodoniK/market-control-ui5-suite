@@ -8,9 +8,9 @@ sap.ui.define([
 		onInit: function() {
 
 			var linkController = sap.ui.controller("sap.ui.mcsuite.controller.Link");
-			linkController.createLink(this.getView(),"assets/img/logo_marketControl.gif", '<i class="fa-solid fa-link">&nbsp;</i>', "Redirect work", "Should show the market control gif", "flexBox3");
-			linkController.createLink(this.getView(),"www.google.fr", '<i class="fa-solid fa-link">&nbsp;</i>', "Redirect not working", "Should redirect to root folder of the project", "flexBox3");
-			linkController.createLink(this.getView(),"www.google.fr", '<i class="fa-solid fa-link">&nbsp;</i>');
+			linkController.createLink(this.getView(),"assets/img/logo_marketControl.gif", 'link', "Redirect work", "Should show the market control gif", "flexBox3");
+			linkController.createLink(this.getView(),"www.google.fr", 'trash', "Redirect not working", "Should redirect to root folder of the project", "flexBox3");
+			linkController.createLink(this.getView(),"www.google.fr", 'link');
 
 			// var tableController = sap.ui.controller("sap.ui.mcsuite.controller.Table");
 			// tableController.createTable(this.getView(),"users");
